@@ -42,4 +42,28 @@ public class ProdutoService {
         return produtoRepository.saveAll(produtos);
     }
 
+    // ============================================================
+    // ================= BUSCAS DETALHADAS POR NOME DE PRODUTO =================
+    // ============================================================
+
+    // Métodos de busca por nome
+    public List<Produto> findByNome(String nome) {
+        return produtoRepository.findByNome(nome);
+    }
+
+    public List<Produto> findByNomeContaining(String nome) {
+        return produtoRepository.findByNomeContaining(nome);
+    }
+
+    public List<Produto> findByNomeAndStatus(String nome, String status) {
+        return produtoRepository.findByNomeAndStatus(nome, status);
+    }
+
+    public List<Produto> findByNomeStartingWith(String prefix) {
+        return produtoRepository.findByNomeStartingWith(prefix);
+    }
+
+    public List<Produto> findByNomeEndingWith(String suffix) {
+        return produtoRepository.findByNomeEndingWith(suffix);
+    }
 }

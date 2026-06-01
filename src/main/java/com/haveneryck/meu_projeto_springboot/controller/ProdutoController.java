@@ -45,4 +45,35 @@ public class ProdutoController {
     public List<Produto> salvarLista(@RequestBody List<Produto> produtos) {
         return produtoService.salvarLista(produtos);
     }
+
+    // ============================================================
+// =============== BUSCAS DETALHADAS POR NOME DE PRODUTO ===============
+// ============================================================
+
+    // Endpoints de busca por nome
+    @GetMapping("/buscarPorNome")
+    public List<Produto> buscarPorNome(@RequestParam String valor) {
+        return produtoService.findByNome(valor);
+    }
+
+    @GetMapping("/buscarPorNomeContendo")
+    public List<Produto> buscarPorNomeContendo(@RequestParam String valor) {
+        return produtoService.findByNomeContaining(valor);
+    }
+
+    @GetMapping("/buscarPorNomeEStatus")
+    public List<Produto> buscarPorNomeEStatus(@RequestParam String nome,
+                                              @RequestParam String status) {
+        return produtoService.findByNomeAndStatus(nome, status);
+    }
+
+    @GetMapping("/buscarPorNomeComecandoCom")
+    public List<Produto> buscarPorNomeComecandoCom(@RequestParam String valor) {
+        return produtoService.findByNomeStartingWith(valor);
+    }
+
+    @GetMapping("/buscarPorNomeTerminandoCom")
+    public List<Produto> buscarPorNomeTerminandoCom(@RequestParam String valor) {
+        return produtoService.findByNomeEndingWith(valor);
+    }
 }
