@@ -100,4 +100,23 @@ public class ProdutoController {
     public Double buscarTotalPreco() {
         return produtoService.findTotalPreco();
     }
+
+    // ==============================================================================
+    // ================ BUSCAS DETALHADAS POR QUANTIDADE DE PRODUTO =================
+    // ==============================================================================
+
+    @GetMapping("/buscarPorQuantidade")
+    public List<Produto> buscarPorQuantidade(@RequestParam Integer valor) {
+        return produtoService.findByQuantidade(valor);
+    }
+
+    @GetMapping("/buscarPorQuantidadeMenorQue")
+    public List<Produto> buscarPorQuantidadeMenorQue(@RequestParam Integer valor) {
+        return produtoService.findByQuantidadeLessThan(valor);
+    }
+
+    @GetMapping("/buscarPorQuantidadeMaiorQue")
+    public List<Produto> buscarPorQuantidadeMaiorQue(@RequestParam Integer valor) {
+        return produtoService.findByQuantidadeGreaterThan(valor);
+    }
 }
