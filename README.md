@@ -119,6 +119,10 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
+## 📸 Preview
+
+![API em funcionamento](images/Postman.png)
+
 ## 👨‍💻 Autor
 
 **Vinícius Oliveira Brito**
